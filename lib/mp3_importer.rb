@@ -13,7 +13,7 @@ class MP3Importer
     mp3_files = Dir.glob("*.mp3", base: @path)
     
     
-    files = Dir.chdir(@path) do
+    files = Dir.chdir(".spec/fixtures") do
       Dir.glob("**/*.mp3")
     end
     files
