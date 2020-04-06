@@ -2,7 +2,7 @@ class MP3Importer
   attr_accessor :path
   
   def initialize(path)
-    @path = path.delete_prefix("./") + "/mp3s"
+    @path = path.delete_prefix("./")
   end
   
   def files
