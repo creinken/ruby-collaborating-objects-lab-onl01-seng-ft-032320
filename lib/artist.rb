@@ -31,10 +31,10 @@ class Artist
   end
   
   def self.find_or_create_by_name(name)
-    if (@@all.select {|artist_obj| artist_obj.name == name} == [])
+    if (self.all.select {|artist_obj| artist_obj.name == name} == [])
       artist = self.new(name)
     else
-      @@all.select {|artist_obj| artist_obj.name == name}.each do |ao|
+      self.all.select {|artist_obj| artist_obj.name == name}.each do |ao|
         artist = ao
       end
     end
