@@ -16,7 +16,8 @@ class Artist
   end
   
   def songs
-    Song.all.select {|song| song.artist == self}
+    artist_name = self.name
+    Song.all.select {|song| song.artist.name == artist_name}
   end
   
   def print_songs
@@ -30,10 +31,12 @@ class Artist
   end
   
   def self.find_or_create_by_name(name)
-    if (self.all.select {|artist_obj| artist_obj.name == name} == [])
+    if (@@all.select {|artist_obj| artist_obj.name == name} == [])
       artist = self.new(name)
     else
-      self.all.select {|artist_obj| artist_obj.name == name}
+      @@all.select {|artist_obj| artist_obj.name == name}.each do |ao|
+        artist = ao
+      end
     end
     artist
   end
