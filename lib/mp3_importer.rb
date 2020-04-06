@@ -6,16 +6,13 @@ class MP3Importer
   end
   
   def files
-    files = Dir.chdir(@path) do
+    mp3_files = Dir.chdir(@path) do
       Dir.glob("**/*.mp3")
     end
     files
   end
   
   def import
-    files = Dir.chdir(@path) do
-      Dir.glob("**/*.mp3")
-    end
     files
   end
 end
